@@ -1,59 +1,51 @@
-; find the smaller of two 8-bit unsigned integers
-; both numbers in memory location x4000, [15:8] is the first, [7:0] is the second
-; store the smaller in x4001 [7:0]
+.ORIG x3000;        start the program at x3000
 
-.ORIG x3000
+; Load the bit vector and masks
+LDI R0, MAIN;       place the one-word bit vector into R0
+LDI R1, MAIN;       place the one-word bit vector into R1
+LD R2, MASK1;       place the first mask into R2
+LD R3, MASK2;       place the second mask into R3
 
-LDI R0, MAIN;   place the one-word bit vector into R0
-LDI R1, MAIN;   place the one-word bit vector into R1
-LD R2, MASK1;   place the first mask into R2
-LD R3, MASK2;   place the second mask into R3
+; Isolate the most and least significant 8 bits
+AND R0, R2, R0;     AND the number with MASK1, result is 8 most significant bits
+STI R0, DST1;       store number one into x4002
+AND R1, R3, R1;     AND the number with MASK2, result is 8 least significant bits
 
-AND R0, R2, R0; AND the number with MASK1, result is 8 most significant bits
-STI R0, DST1;   store number one into x4002
-AND R1, R3, R1; AND the number with MASK2, result is 8 least significant bits
-
-LD R2, SRCMask
-LD R3, DSTMask
-AND R0, R0, #0; initialize R4 (Result) to 0
-; LOOP Start
+; Right shift the most significant 8 bits
+ADD R0, R1, #0;     copy R1 to R0
+LD R2, SRCMask;     place the source mask into R2
+LD R3, DSTMask;     place the destination mask into R3
     AND R4, R1, R2; inspect bit k using the source mask
-    BRz #8;         if bit k=0, skip to update masks
-    NOT R4, R1;     if bit k=1, OR DSTMask (R3) with number 2 (R1)
-    NOT R5, R3
-    AND R5, R4, R5
-    NOT R0, R5
-    ; Subtract out number 2 from answer
-    NOT R4, R1
-    ADD R4, R4, #1
-    ADD R0, R4, R0
-    ; Update Masks
-    ADD R3, R3, R3
-    ADD R2, R2, R2
-    BRnp #-12
-; LOOP End
-STI R0, DST2
+    BRz #1;         if bit k=0, skip to left-shifting masks
+    ADD R1, R1, R3; otherwise, add the destination mask to our number
+    ADD R3, R3, R3; left-shift DSTMask
+    ADD R2, R2, R2; left-shift SRCMask
+    BRnp #-6;       unless R2 turns to 0, repeat the loop from line 20
+NOT R0, R0;         one's complement our original number
+ADD R0, R0, #1;     two's complement our original number
+ADD R1, R1, R0;     add our loop result to the two's complement original number
+STI R1, DST2;       resultant right shifted number stored into x4003
 
 ; Logic to determine which is larger
-LDI R0, DST1; Load first number into R0
-LDI R1, DST2; Load second number into R1
-NOT R2, R1
-ADD R2, R2, #1
-ADD R2, R2, R0
+LDI R0, DST1;       Load first number into R0 (bits 7:0 of the original vector)
+LDI R1, DST2;       Load second number into R1 (bits 15:8 of the original vector)
+NOT R2, R1;         One's complement the second number
+ADD R2, R2, #1;     two's complement the second number
+ADD R2, R2, R0;     Add the first number and two's complemented second number
 
-; Store to Memory
-BRnz #2;        if the value of R5 is negative or 0, skip to next STI
-STI R0, DST;    if the value of R5 is positive, store R0 to the destination
-BRp #1;         if the value of R5 is positive, proceed to HALT
-STI R1, DST;    if the value of R5 is positive, store R1 to the destination
+; Store final answer to memory
+BRnz #2;            if the value of R2 is negative or 0, skip to store R0
+STI R1, DST;        if the value of R2 is positive, store R1 to the final destination 
+BRp #1;             if the value of R2 is positive, proceed to HALT
+STI R0, DST
 
 HALT
-MAIN .FILL x4000; address for combined number
-MASK1 .FILL x00FF
-MASK2 .FILL xFF00
-SRCMask .FILL x0100
-DSTMask .FILL x0001
-DST .FILL x4001
-DST1 .FILL x4002
-DST2 .FILL x4003
+MAIN .FILL x4000;   address for original bit vector representing two unsigned integers
+MASK1 .FILL x00FF;  masks the most significant 8 bits
+MASK2 .FILL xFF00;  masks the least significant 8 bits
+SRCMask .FILL x0100;allows us to start testing at bit 8
+DSTMask .FILL x0001;allows us to start settting bits at bit 0
+DST .FILL x4001;    final destination of the smallest number (even if they are equal)
+DST1 .FILL x4002;   intermediate destination for the least significant 8 bits
+DST2 .FILL x4003;   intermediate destination for the right-shifted most significant 8 bits
 .END
