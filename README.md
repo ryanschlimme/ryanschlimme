@@ -1,8 +1,7 @@
-- 👋 Hi, I’m @ryanschlimme and I'm a FINANCE major.
-- 👀 I’m interested in double majoring in ECE.
-- 🌱 I’m currently learning EE 302/306.
-- 💞️ I’m looking to collaborate on nothing yet.
-- 📫 How to reach me ... ryanschlimme@utexas.edu
+- Hi, I’m @ryanschlimme and I'm a Finance major applying for a double major in ECE.
+- I’m currently learning circuit analysis, assembly language, and Python.
+- I have experience with R data analysis and visualization.
+- How to reach me ... ryanschlimme@utexas.edu
 
 
 <!---
