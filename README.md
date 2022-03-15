@@ -1,6 +1,7 @@
 - Hi, I’m @ryanschlimme and I'm a Finance major applying for a double major in ECE.
 - I’m currently learning circuit analysis, assembly language, and Python.
-- I have experience with R data analysis and visualization.
+- Experience in R data analysis and visualization.
+- Interested in nanotechnology and quantum electric materials research.
 - How to reach me ... ryanschlimme@utexas.edu
 
 
