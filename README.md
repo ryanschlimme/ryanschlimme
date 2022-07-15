@@ -1,7 +1,7 @@
-- Hi, I’m @ryanschlimme and I'm a Finance major applying for a double major in ECE.
-- I’m currently learning circuit analysis, assembly language, Python, and SQL.
-- Experience in R data analysis and visualization.
-- Interested in nanotechnology and quantum electric materials research.
+- Hi, I’m @ryanschlimme and I'm a Science/Technology Management major applying for a double major in Physics.
+- I’m currently learning quantum computing, quantum mechanics, waves motion and optics, vector calculus, and chemistry.
+- Experience in R data analysis and visualization, Python, circuit analysis, and lower level computer architecture and programming.
+- Interested in quantum computing research.
 - How to reach me ... ryanschlimme@utexas.edu
 
 
