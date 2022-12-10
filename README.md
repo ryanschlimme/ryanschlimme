@@ -1,6 +1,6 @@
 - Hi, I’m @ryanschlimme and I'm a Science/Technology Management major applying for a double major in Physics.
-- I’m currently learning quantum mechanics, waves motion and optics, vector calculus, and chemistry.
-- Experience in R data analysis and visualization, Python, circuit analysis, and lower level computer architecture and programming.
+- I’m currently learning quantum chemistry and dynamics, quantum computing, modern physics and thermodynamics, linear algebra, and chemistry.
+- Experience in R data analysis and visualization, Python, circuit analysis, lower level computer architecture and programming, quantum mechanics, vector calculus, and differential equations.
 - Interested in quantum computing research.
 - How to reach me ... ryanschlimme@utexas.edu
 
