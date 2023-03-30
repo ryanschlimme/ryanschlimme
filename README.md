@@ -1,7 +1,7 @@
-- Hi, I’m @ryanschlimme and I'm a Science/Technology Management major applying for a double major in Physics.
-- I’m currently learning quantum chemistry and dynamics, quantum computing, modern physics and thermodynamics, linear algebra, and chemistry.
+- Hi, I’m @ryanschlimme and I'm a Computational Physics undergraduate at the University of Texas at Austin graduating in Spring 2024.
+- I’m currently learning quantum dynamics, quantum optics, classical electrodynamics, linear algebra, and chemistry.
 - Experience in R data analysis and visualization, Python, circuit analysis, lower level computer architecture and programming, quantum mechanics, vector calculus, and differential equations.
-- Interested in quantum computing research.
+- Interested in new silicon fabrication techniques, quantum material fabrication research, data analytics, and applied mathematics.
 - How to reach me ... ryanschlimme@utexas.edu
 
 
