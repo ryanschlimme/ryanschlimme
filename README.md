@@ -1,7 +1,7 @@
 - Hi, I’m @ryanschlimme and I'm a Computational Physics undergraduate at the University of Texas at Austin graduating in Spring 2024.
-- I’m currently researching quantum optics with The Raizen Group in Austin, TX.
-- Experience in R, Python, circuit analysis, lower level computer architecture and programming, quantum mechanics, vector calculus, and differential equations.
-- Interested in new silicon fabrication techniques, quantum material fabrication, digital logic design, and hardware validation.
+- I’m currently researching beam-detection type optoacoustic detection systems with The Raizen Group in Austin, TX.
+- Experience in R, Python, C++, MATLAB, circuit analysis/design/test, lower level computer architecture and programming, quantum mechanics/dynamics, vector calculus, ordinary and partial differential equations, linear algebra, and computational approximation techniques.
+- Interested in silicon fabrication techniques, digital logic design, and hardware validation.
 - How to reach me ... ryanschlimme@utexas.edu
 
 
